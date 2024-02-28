@@ -8,7 +8,7 @@ namespace Methods
 {
     internal class Program
     {
-        static string ShowColor(string username, int userage)
+        static string ShowColor(string username, int userage, params string[] favcolors)
         {
             Console.WriteLine($"{username} - {userage}, \nнапишите свой любимый цвет на английском с маленькой буквы: ");
             string color = Console.ReadLine();
@@ -74,10 +74,8 @@ namespace Methods
         }
 
         // Упорядочиваем массив по возрастанию
-        static int[] SortArray(int[] array)
+        static int[] SortArray(int[] result)
         {
-            int[] result = array;
-
             int temp = 0;
             for (int i = 0; i < result.Length; i++)
             {
@@ -99,6 +97,26 @@ namespace Methods
             }
 
             return result;
+        }
+
+        // К разделу 5.3. Передача параметров
+        static void GetName(out string name)
+        {
+            Console.WriteLine("Введите имя: ");
+            name = Console.ReadLine();
+            Console.WriteLine(name);
+        }
+
+        static void GetAge(int age)
+        {
+            Console.Write("Введите ваш возраст: ");
+            age = int.Parse(Console.ReadLine());
+            Console.WriteLine(age);
+        }
+
+        static void BigDataOperation(int[] arr)
+        {
+            arr[0] = 4;
         }
 
         static void Main(string[] args)
@@ -135,7 +153,23 @@ namespace Methods
             // int[] array = GetArrayFromConsole(); 
 
             // 5.2. Параметры методов см. ShowColor с параметрами (выше).
-            SortArray(GetArrayFromConsole());
+            // SortArray(GetArrayFromConsole());
+
+            // 5.3. Передача параметров
+            /*string name = "Дмитрий";
+            GetName(out name); // ref - передача по ссылке, метод изменяет значение переменной
+            Console.WriteLine(name);*/
+
+            /*int age = 54;
+            GetAge(age);
+            Console.WriteLine(age);*/
+
+            /*var arr = new int[] { 1, 2, 3 };
+            BigDataOperation(arr);
+
+            Console.WriteLine(arr[0]);*/
+
+
         }
     }
 }
