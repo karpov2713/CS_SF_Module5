@@ -59,6 +59,41 @@ namespace Methods
 
         static string GetDataFromConsole_ShortForm() => Console.ReadLine(); // Сокращенный вариант записи предыдущего метода.
 
+        static int[] GetArrayFromConsole()
+        {
+            int[] result = new int[5];
+
+            // Инициируем массив данными из цикла.
+            for (int i = 0; i < result.Length; i++)
+            {
+                Console.WriteLine("Введите элемент массива номер {0}", i + 1);
+                result[i] = int.Parse(Console.ReadLine());
+            }
+
+            // Упорядочиваем массив по возрастанию
+            int temp = 0;
+            for (int i = 0; i < result.Length; i++)
+            {
+                for(int j = i + 1; j < result.Length; j++)
+                {
+                    if (result[i] > result[j])
+                    {
+                        temp = result[i];
+                        result[i] = result[j];
+                        result[j] = temp;
+                    }
+                }
+            }
+
+            // Выводим упорядоченный массив в консоль
+            for (int i = 0; i < result.Length; i++ )
+            {
+                Console.WriteLine(result[i]);
+            }
+
+            return result;
+        }
+
         static void Main(string[] args)
         {
             /*(string Name, string[] Dishes) User;
@@ -74,7 +109,20 @@ namespace Methods
             }*/
 
             // 5.1. Методы
-            ShowColor();
+            /*string[] favcolors = new string[3];
+
+            for (int i = 0; i < favcolors.Length; i++)
+            {
+                favcolors[i] = ShowColor();
+            }
+
+            Console.WriteLine("Выши любимые цвета: ");
+            foreach(var color in favcolors)
+            {
+                Console.WriteLine(color);
+            }*/
+
+            int[] array = GetArrayFromConsole();
         }
     }
 }
