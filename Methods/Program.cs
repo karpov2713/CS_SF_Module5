@@ -8,10 +8,12 @@ namespace Methods
 {
     internal class Program
     {
-        static void ShowColor()
+        static string ShowColor()
         {
             Console.WriteLine("Напишите свой любимый цвет на английском с маленькой буквы: ");
-            switch (Console.ReadLine())
+            string color = Console.ReadLine();
+
+            switch (color)
             {
                 case "red":
                     Console.BackgroundColor = ConsoleColor.Red;
@@ -46,7 +48,16 @@ namespace Methods
                     Console.WriteLine("Введите свой любимый цвет!: ");
                     break;
             }
+
+            return color;
         }
+
+        static string GetDataFromConsole() // Просто возвращаем данные введенные в консоль.
+        {
+            return Console.ReadLine();
+        }
+
+        static string GetDataFromConsole_ShortForm() => Console.ReadLine(); // Сокращенный вариант записи предыдущего метода.
 
         static void Main(string[] args)
         {
@@ -63,7 +74,7 @@ namespace Methods
             }*/
 
             // 5.1. Методы
-
+            ShowColor();
         }
     }
 }
