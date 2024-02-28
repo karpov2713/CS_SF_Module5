@@ -10,6 +10,8 @@ namespace Methods
     {
         static void Main(string[] args)
         {
+            (string Name, string[] Dishes) User;
+
         }
     }
 }
