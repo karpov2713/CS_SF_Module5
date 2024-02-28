@@ -8,9 +8,14 @@ namespace _5._5_РекурсивныеФункции
 {
     internal class Program
     {
-        static void Echo(string saidword)
+        static void Echo(string phrase, int deep)
         {
-            Console.WriteLine(saidword);
+            Console.WriteLine(phrase);
+
+            if (deep > 1)
+            {
+                Echo(phrase, deep - 1);
+            }
         }
 
         static void Main(string[] args)
@@ -23,10 +28,7 @@ namespace _5._5_РекурсивныеФункции
 
             var deep = int.Parse(Console.ReadLine());
 
-            for (int i = 0; i < deep; i++)
-            {
-                Echo(str);
-            }
+            Echo(str, deep);
         }
     }
 }
