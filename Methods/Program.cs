@@ -8,9 +8,9 @@ namespace Methods
 {
     internal class Program
     {
-        static string ShowColor()
+        static string ShowColor(string username, int userage)
         {
-            Console.WriteLine("Напишите свой любимый цвет на английском с маленькой буквы: ");
+            Console.WriteLine($"{username} - {userage}, \nнапишите свой любимый цвет на английском с маленькой буквы: ");
             string color = Console.ReadLine();
 
             switch (color)
@@ -70,11 +70,18 @@ namespace Methods
                 result[i] = int.Parse(Console.ReadLine());
             }
 
-            // Упорядочиваем массив по возрастанию
+            return result;
+        }
+
+        // Упорядочиваем массив по возрастанию
+        static int[] SortArray(int[] array)
+        {
+            int[] result = array;
+
             int temp = 0;
             for (int i = 0; i < result.Length; i++)
             {
-                for(int j = i + 1; j < result.Length; j++)
+                for (int j = i + 1; j < result.Length; j++)
                 {
                     if (result[i] > result[j])
                     {
@@ -86,7 +93,7 @@ namespace Methods
             }
 
             // Выводим упорядоченный массив в консоль
-            for (int i = 0; i < result.Length; i++ )
+            for (int i = 0; i < result.Length; i++)
             {
                 Console.WriteLine(result[i]);
             }
@@ -109,20 +116,26 @@ namespace Methods
             }*/
 
             // 5.1. Методы
-            /*string[] favcolors = new string[3];
+            /*var (name, age) = ("Дмитрий", 54);
+
+            string[] favcolors = new string[3];
 
             for (int i = 0; i < favcolors.Length; i++)
             {
-                favcolors[i] = ShowColor();
+                favcolors[i] = ShowColor(name, age);
             }
 
             Console.WriteLine("Выши любимые цвета: ");
-            foreach(var color in favcolors)
+            foreach (var color in favcolors)
             {
                 Console.WriteLine(color);
             }*/
 
-            int[] array = GetArrayFromConsole();
+            // Инициализация массива с помощью метода GetArrayFromConsole()
+            // int[] array = GetArrayFromConsole(); 
+
+            // 5.2. Параметры методов см. ShowColor с параметрами (выше).
+            SortArray(GetArrayFromConsole());
         }
     }
 }
